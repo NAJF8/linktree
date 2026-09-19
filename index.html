@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>101 COFFEE HOUSE</title>
-    <!-- Google Fonts: Cairo & Tajawal -->
+    <!-- خط تجوال وأيقونات Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #6d866a;       /* اللون الأخضر الزيتي الأساسي من الصورة */
-            --card-bg: #577054;        /* لون كروت الروابط الأغمق */
-            --card-hover: #4a6148;     /* لون الكرت عند الضغط/التحويم */
-            --thumb-bg: #445941;       /* خلفية أيقونة/صورة الكرت */
-            --text-color: #ffffff;      /* لون النصوص الأساسي */
-            --accent-green: #90c290;   /* أخضر فاتح للتفاصيل */
+            --bg-color: #6d866a;       /* اللون الأخضر الزيتي الأساسي */
+            --card-bg: #577054;        /* لون الكروت */
+            --card-hover: #4a6148;     /* لون الكرت عند اللمس */
+            --thumb-bg: #445941;       
+            --text-color: #ffffff;      
         }
 
         * {
@@ -36,52 +34,46 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 0 0 50px 0;
+            padding-bottom: 50px;
         }
 
-        /* حاوية التصميم - قياس مخصص للموبايل والويب */
         .page-wrapper {
             width: 100%;
             max-width: 440px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
         }
 
-        /* منطقة الفيديو / الغلاف العلوي */
+        /* غلاف الفيديو العلوي */
         .header-cover {
             width: 100%;
             height: 220px;
             position: relative;
             background-color: #1a2219;
             overflow: hidden;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
-        .header-cover video,
-        .header-cover img {
+        .header-cover video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        /* طبقة تدرج ناعمة فوق الفيديو */
         .header-cover::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             height: 50%;
-            background: linear-gradient(to top, rgba(109, 134, 106, 0.6), transparent);
+            background: linear-gradient(to top, rgba(109, 134, 106, 0.7), transparent);
             pointer-events: none;
         }
 
-        /* صورة اللوجو الدائرية المتداخلة */
+        /* اللوجو الدائري */
         .profile-container {
             position: relative;
             margin-top: -55px;
@@ -94,7 +86,7 @@
             border-radius: 50%;
             border: 4px solid var(--bg-color);
             background-color: #577054;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -107,7 +99,6 @@
             object-fit: cover;
         }
 
-        /* الاسم والوصف */
         .profile-title {
             margin-top: 14px;
             font-size: 1.45rem;
@@ -123,14 +114,13 @@
             font-weight: 500;
         }
 
-        /* أيقونات التواصل الاجتماعي الدائرية العلوية */
+        /* الأيقونات الدائرية السريعة */
         .social-buttons {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            margin-top: 18px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin: 18px 0 24px 0;
         }
 
         .social-btn {
@@ -146,15 +136,15 @@
             font-size: 1.4rem;
             text-decoration: none;
             transition: all 0.25s ease;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        .social-btn:hover, .social-btn:active {
-            transform: scale(1.1);
+        .social-btn:hover {
+            transform: scale(1.12);
             background: rgba(255, 255, 255, 0.25);
         }
 
-        /* قائمة روابط البطاقات */
+        /* قائمة الروابط */
         .links-list {
             width: 90%;
             display: flex;
@@ -173,8 +163,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.22s ease;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            position: relative;
-            overflow: hidden;
         }
 
         .link-card:hover {
@@ -183,16 +171,10 @@
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
         }
 
-        .link-card:active {
-            transform: scale(0.98);
-        }
-
-        /* الأيقونة / الصورة المصغرة في يمين الكرت */
         .card-icon {
             width: 50px;
             height: 50px;
             border-radius: 12px;
-            background-color: var(--thumb-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,17 +182,9 @@
             color: #ffffff;
             margin-left: 14px;
             flex-shrink: 0;
-            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        .card-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* النصوص والتفاصيل */
         .card-info {
             flex-grow: 1;
             text-align: right;
@@ -235,60 +209,51 @@
             gap: 5px;
         }
 
-        /* النقاط الجانبية الثلاث */
         .card-dots {
             opacity: 0.5;
             font-size: 1.1rem;
             padding-right: 6px;
             padding-left: 4px;
-            display: flex;
-            align-items: center;
         }
 
-        /* تذييل الصفحة الأنيق */
         .footer {
             margin-top: 36px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
             opacity: 0.75;
             font-size: 0.85rem;
-        }
-
-        .footer span {
             font-weight: 600;
-            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
     <div class="page-wrapper">
-        <!-- 1. غلاف الفيديو بالأعلى (ضع مقطعك باسم video.mp4 أو غيّر الرابط) -->
+        <!-- 1. غلاف الفيديو (video.mp4) -->
         <div class="header-cover">
             <video autoplay muted loop playsinline poster="logo.png">
                 <source src="video.mp4" type="video/mp4">
             </video>
         </div>
 
-        <!-- 2. صورة اللوجو الدائرية -->
+        <!-- 2. اللوجو الدائري (logo.png) -->
         <div class="profile-container">
             <div class="profile-logo">
                 <img src="logo.png" alt="101 Coffee Logo" onerror="this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&auto=format&fit=crop&q=80'">
             </div>
         </div>
 
-        <!-- 3. العنوان والمعرف -->
+        <!-- 3. المعرف والاسم -->
         <h1 class="profile-title">@101COFFEE</h1>
         <p class="profile-subtitle">101 COFFEE HOUSE • النجف الأشرف</p>
 
-        <!-- 4. الأيقونات الدائرية السريعة (انستغرام + موقع + واتساب) -->
+        <!-- 4. الأيقونات الدائرية السريعة (واتساب، انستغرام، موقع، منيو) -->
         <div class="social-buttons">
+            <a href="https://wa.me/9647803029642" target="_blank" class="social-btn" title="تواصل عبر واتساب">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
             <a href="https://www.instagram.com/101co_ffee?stkn=MTZmaTdiZWVwNTNpcQ==" target="_blank" class="social-btn" title="انستغرام">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://maps.app.goo.gl/2KTJ82HrDf9bb6YZA?g_st=ic" target="_blank" class="social-btn" title="موقعنا على الخريطة">
+            <a href="https://maps.app.goo.gl/2KTJ82HrDf9bb6YZA?g_st=ic" target="_blank" class="social-btn" title="الموقع على الخريطة">
                 <i class="fa-solid fa-location-dot"></i>
             </a>
             <a href="https://101coffees.com" target="_blank" class="social-btn" title="المنيو الإلكتروني">
@@ -299,7 +264,21 @@
         <!-- 5. كروت الروابط الرئيسية -->
         <div class="links-list">
 
-            <!-- رابط المنيو الإلكتروني -->
+            <!-- كرت الواتساب المباشر -->
+            <a href="https://wa.me/9647803029642" target="_blank" class="link-card">
+                <div class="card-icon" style="background: #25d3662b; color: #4ade80;">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">تواصل معنا عبر واتساب</div>
+                    <div class="card-subtitle">
+                        <i class="fa-solid fa-phone" style="font-size: 0.72rem;"></i> 07803029642 — محادثة مباشرة وطلبات
+                    </div>
+                </div>
+                <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+            </a>
+
+            <!-- كرت المنيو الإلكتروني -->
             <a href="https://101coffees.com" target="_blank" class="link-card">
                 <div class="card-icon" style="background: #3e533b;">
                     <i class="fa-solid fa-book-open"></i>
@@ -313,7 +292,7 @@
                 <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
             </a>
 
-            <!-- رابط الموقع الجغرافي (Google Maps) -->
+            <!-- كرت الموقع الجغرافي (Google Maps) -->
             <a href="https://maps.app.goo.gl/2KTJ82HrDf9bb6YZA?g_st=ic" target="_blank" class="link-card">
                 <div class="card-icon" style="background: #3a5449;">
                     <i class="fa-solid fa-map-location-dot"></i>
@@ -327,7 +306,7 @@
                 <div class="card-dots"><i class="fa-solid fa-ellipsis-vertical"></i></div>
             </a>
 
-            <!-- رابط حساب الإنستغرام -->
+            <!-- كرت الإنستغرام -->
             <a href="https://www.instagram.com/101co_ffee?stkn=MTZmaTdiZWVwNTNpcQ==" target="_blank" class="link-card">
                 <div class="card-icon" style="background: #503d46;">
                     <i class="fa-brands fa-instagram"></i>
@@ -343,7 +322,6 @@
 
         </div>
 
-        <!-- تذييل -->
         <div class="footer">
             <span>101 COFFEE HOUSE</span>
         </div>
